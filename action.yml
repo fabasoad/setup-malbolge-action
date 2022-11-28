@@ -33,5 +33,7 @@ runs:
       run: |
         wget -c https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/malbolge/${{ inputs.version }}-0ubuntu1/malbolge_${{ inputs.version }}.orig.tar.gz -O - | tar -xz
         echo "${{ steps.info.outputs.MALBOLGE_PATH }}" >> $GITHUB_PATH
+        echo "ls -A:"
+        ls -A
       shell: sh
       working-directory: ${{ steps.info.outputs.MALBOLGE_PATH }}
