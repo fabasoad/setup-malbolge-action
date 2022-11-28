@@ -11,6 +11,8 @@ This action installs [malbolge](https://en.wikipedia.org/wiki/Malbolge) interpre
 The following tools have to be installed for successful work of this GitHub action:
 [gcc](https://gcc.gnu.org).
 
+> `Windows` and `Linux` are the only supported OS at this moment
+
 ## Example usage
 
 ### Input

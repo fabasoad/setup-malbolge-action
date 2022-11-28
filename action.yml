@@ -8,21 +8,20 @@ branding:
 runs:
   using: 'composite'
   steps:
-#    - name: Fail
-#      uses: actions/github-script@v6
-#      if: ${{ runner.os != 'Linux' }}
-#      with:
-#        script: core.setFailed('${{ runner.os }} ${{ runner.arch }} is not supported');
+    - name: Fail
+      uses: actions/github-script@v6
+      if: ${{ runner.os == 'macOS' }}
+      with:
+        script: core.setFailed('${{ runner.os }} ${{ runner.arch }} is not supported');
     - name: Collect info
-#      if: ${{ runner.os == 'Linux' }}
+      if: ${{ runner.os != 'macOS' }}
       id: info
       run: |
         MALBOLGE_INSTALLED=$(if command -v malbolge >/dev/null 2>&1; then echo true; else echo false; fi)
         echo "MALBOLGE_INSTALLED=$MALBOLGE_INSTALLED" >> $GITHUB_OUTPUT
       shell: sh
     - name: Install malbolge
-#      if: ${{ runner.os == 'Linux' && steps.info.outputs.MALBOLGE_INSTALLED == 'false' }}
-      if: ${{ steps.info.outputs.MALBOLGE_INSTALLED == 'false' }}
+      if: ${{ runner.os != 'macOS' && steps.info.outputs.MALBOLGE_INSTALLED == 'false' }}
       run: |
         gcc src/malbolge.c -o malbolge
         echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
