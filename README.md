@@ -48,7 +48,7 @@ jobs:
 
 ### Result
 
-```shell
+```text
 Run malbolge hello-world.mal
 Hello, world.
 ```
