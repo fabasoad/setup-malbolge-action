@@ -24,5 +24,5 @@ jobs:
           version: ${{ matrix.version }}
       - name: Run script
         run: |
-          [ "$(malbolge hello-world.mal)" = "Hello, world" ] || exit 1;
+          [ "$(malbolge hello-world.mal)" = "Hello, world." ] || exit 1;
         shell: sh

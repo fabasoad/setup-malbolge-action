@@ -50,5 +50,5 @@ jobs:
 
 ```shell
 Run malbolge hello-world.mal
-Hello, world
+Hello, world.
 ```
