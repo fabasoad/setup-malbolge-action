@@ -9,7 +9,7 @@ This action installs [malbolge](https://en.wikipedia.org/wiki/Malbolge) interpre
 ## Prerequisites
 
 The following tools have to be installed for successful work of this GitHub action:
-`wget`.
+[gcc](https://gcc.gnu.org).
 
 ## Inputs
 
