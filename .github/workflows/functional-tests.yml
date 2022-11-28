@@ -8,8 +8,8 @@ on:
   pull_request:
 
 jobs:
-  functional_tests:
-    name: Setup malbolge
+  run-script:
+    name: Run script
     timeout-minutes: 5
     strategy:
       fail-fast: false
@@ -18,9 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./
+      - name: Setup malbolge
+        uses: ./
         with:
           version: ${{ matrix.version }}
-      - name: Print version
+      - name: Run script
         run: malbolge hello-world.mal
         shell: sh
