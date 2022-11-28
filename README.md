@@ -19,6 +19,14 @@ The following tools have to be installed for successful work of this GitHub acti
 
 ## Example usage
 
+### Input
+
+This program should print "Hello, world":
+
+```text
+(=<`#9]~6ZY327Uv4-QsqpMn&+Ij"'E%e{Ab~w=_:]Kw%o44Uqp0/Q?xNvL:`H%c#DD2^WV>gY;dts76qKJImZkj
+```
+
 ### Workflow configuration
 
 ```yaml
@@ -42,5 +50,5 @@ jobs:
 
 ```shell
 Run malbolge hello-world.mal
-Hello world
+Hello, world
 ```
