@@ -31,7 +31,7 @@ runs:
     - name: Install malbolge
       if: ${{ runner.os == 'Linux' && steps.info.outputs.MALBOLGE_INSTALLED == 'false' }}
       run: |
-        wget -q -O malbolge.tar.gz https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/malbolge/${{ inputs.version }}-0ubuntu1/malbolge_${{ inputs.version }}.orig.tar.gz | tar -xzvf
+        wget -c https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/malbolge/${{ inputs.version }}-0ubuntu1/malbolge_${{ inputs.version }}.orig.tar.gz -O - | tar -xz
         echo "${{ steps.info.outputs.MALBOLGE_PATH }}" >> $GITHUB_PATH
       shell: sh
       working-directory: ${{ steps.info.outputs.MALBOLGE_PATH }}
