@@ -5,11 +5,6 @@ description: 'This action installs malbolge interpreter.'
 branding:
   icon: terminal
   color: gray-dark
-inputs:
-  version:
-    description: 'malbolge version.'
-    required: false
-    default: '0.2'
 runs:
   using: 'composite'
   steps:

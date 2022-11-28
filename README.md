@@ -11,12 +11,6 @@ This action installs [malbolge](https://en.wikipedia.org/wiki/Malbolge) interpre
 The following tools have to be installed for successful work of this GitHub action:
 [gcc](https://gcc.gnu.org).
 
-## Inputs
-
-| Name    | Required | Description                                                                                                | Default | Possible values |
-|---------|----------|------------------------------------------------------------------------------------------------------------|---------|-----------------|
-| version | No       | Version of `malbolge` tool that can be found [here](https://launchpad.net/ubuntu/trusty/+package/malbolge) | `0.2`   | `0.2`           |
-
 ## Example usage
 
 ### Input

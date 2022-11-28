@@ -14,14 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ['0.2']
-    runs-on: ubuntu-latest
+        os: ['macos', 'ubuntu', 'windows']
+    runs-on: ${{ matrix.os }}-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup malbolge
         uses: ./
-        with:
-          version: ${{ matrix.version }}
       - name: Run script
         run: |
           [ "$(malbolge hello-world.mal)" = "Hello, world." ] || exit 1;
