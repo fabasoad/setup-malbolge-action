@@ -8,19 +8,19 @@ on:
   pull_request:
 
 jobs:
-  functional_tests:
-    name: Setup malbolge
+  run-script:
+    name: Run script
     timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
-        version: ['0.2']
-    runs-on: ubuntu-latest
+        os: ['ubuntu', 'windows']
+    runs-on: ${{ matrix.os }}-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./
-        with:
-          version: ${{ matrix.version }}
-      - name: Print version
-        run: malbolge hello-world.mal
+      - name: Setup malbolge
+        uses: ./
+      - name: Run script
+        run: |
+          [ "$(malbolge hello-world.mal)" = "Hello, world." ] || exit 1;
         shell: sh
