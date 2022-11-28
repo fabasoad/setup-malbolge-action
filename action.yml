@@ -24,14 +24,10 @@ runs:
       run: |
         MALBOLGE_INSTALLED=$(if command -v malbolge >/dev/null 2>&1; then echo true; else echo false; fi)
         echo "MALBOLGE_INSTALLED=$MALBOLGE_INSTALLED" >> $GITHUB_OUTPUT
-        malbolge_path="$GITHUB_WORKSPACE/malbolge"
-        mkdir -p $malbolge_path
-        echo "MALBOLGE_PATH=$malbolge_path" >> $GITHUB_OUTPUT
       shell: sh
     - name: Install malbolge
       if: ${{ runner.os == 'Linux' && steps.info.outputs.MALBOLGE_INSTALLED == 'false' }}
       run: |
         gcc src/malbolge.c -o malbolge
-        echo "${{ steps.info.outputs.MALBOLGE_PATH }}" >> $GITHUB_PATH
+        echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
       shell: sh
-      working-directory: ${{ steps.info.outputs.MALBOLGE_PATH }}
