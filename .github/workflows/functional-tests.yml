@@ -14,11 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ['ubuntu', 'windows']
+        os: ['ubuntu', 'windows', 'macos']
     runs-on: ${{ matrix.os }}-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup malbolge
+        uses: ./
+      - name: Setup malbolge 2
         uses: ./
       - name: Run script
         run: |
