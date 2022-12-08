@@ -20,11 +20,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup malbolge
         uses: ./
-      - name: Setup malbolge 2
-        uses: ./
-      - name: Run 1
-        run: malbolge hello-world.mal
-        shell: sh
       - name: Run script
         run: |
           [ "$(malbolge hello-world.mal)" = "Hello, world." ] || exit 1;
