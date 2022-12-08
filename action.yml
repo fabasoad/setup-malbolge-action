@@ -17,7 +17,7 @@ runs:
           fi
           gcc src/malbolge.c -o malbolge
           echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
-        elif
+        else
           malbolge --version
         fi
       shell: sh
