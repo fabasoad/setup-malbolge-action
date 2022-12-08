@@ -18,6 +18,6 @@ runs:
           gcc src/malbolge.c -o malbolge
           echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
         else
-          echo "Skipped"
+          echo "malbolge is already installed at $(which malbolge)"
         fi
       shell: sh
