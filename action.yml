@@ -1,12 +1,12 @@
 ---
-name: 'Setup Malbolge'
+name: "Setup Malbolge"
 author: Yevhen Fabizhevskyi
-description: 'This action installs malbolge interpreter.'
+description: "This action installs malbolge interpreter."
 branding:
   icon: terminal
   color: gray-dark
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Install malbolge
       run: |
