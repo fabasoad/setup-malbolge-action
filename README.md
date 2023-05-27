@@ -2,8 +2,8 @@
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
 ![Release](https://img.shields.io/github/v/release/fabasoad/setup-malbolge-action?include_prereleases)
-![Functional Tests](https://github.com/fabasoad/setup-malbolge-action/workflows/Functional%20Tests/badge.svg)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/fabasoad/setup-malbolge-action/main.svg)](https://results.pre-commit.ci/latest/github/fabasoad/setup-malbolge-action/main)
+![functional-tests](https://github.com/fabasoad/setup-malbolge-action/actions/workflows/functional-tests.yml/badge.svg)
+![pre-commit](https://github.com/fabasoad/setup-malbolge-action/actions/workflows/pre-commit.yml/badge.svg)
 
 This action installs [malbolge](https://en.wikipedia.org/wiki/Malbolge) interpreter.
 
