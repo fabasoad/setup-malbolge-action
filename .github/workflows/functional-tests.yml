@@ -21,7 +21,7 @@ jobs:
         os: ["ubuntu", "windows"]
     runs-on: ${{ matrix.os }}-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup malbolge
         uses: ./
       - name: Run script
