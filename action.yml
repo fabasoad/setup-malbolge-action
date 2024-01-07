@@ -11,12 +11,12 @@ runs:
     - name: Install malbolge
       run: |
         if ! command -v malbolge >/dev/null 2>&1; then
-          if [ "${{ runner.os }}" = "macOS" ]; then
-            echo "::error::${{ runner.os }} ${{ runner.arch }} is not supported"
+          if [ "${RUNNER_OS}" = "macOS" ]; then
+            echo "::error::${RUNNER_OS} ${RUNNER_ARCH} is not supported"
             exit 1
           fi
           gcc src/malbolge.c -o malbolge
-          echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
+          echo "$GITHUB_WORKSPACE" >> "$GITHUB_PATH"
         else
           echo "::debug::$(which malbolge) is already installed"
         fi
