@@ -23,6 +23,7 @@ main() {
   fi
   echo "bin-installed=${bin_installed}" >> "$GITHUB_OUTPUT"
 
+  bin_dir="malbolge_$(date +%s)"
   bin_path="${RUNNER_TEMP}/${bin_dir}"
   echo "bin-path=${bin_path}" >> "$GITHUB_OUTPUT"
 }
