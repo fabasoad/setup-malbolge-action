@@ -5,19 +5,49 @@ description: "This action installs malbolge interpreter."
 branding:
   icon: terminal
   color: gray-dark
+inputs:
+  force:
+    description: |
+      If "false" skips installation if malbolge is already installed. If "true"
+      installs malbolge in any case. Defaults to "false".
+    required: false
+    default: "false"
+outputs:
+  installed:
+    description: Whether malbolge was installed or not.
+    value: "${{ steps.install-malbolge.outcome == 'success' }}"
 runs:
   using: "composite"
   steps:
-    - name: Install malbolge
+    - name: Fail
+      if: ${{ runner.os == 'macOS' }}
       run: |
-        if ! command -v malbolge >/dev/null 2>&1; then
-          if [ "${RUNNER_OS}" = "macOS" ]; then
-            echo "::error::${RUNNER_OS} ${RUNNER_ARCH} is not supported"
-            exit 1
-          fi
-          gcc src/malbolge.c -o malbolge
-          echo "$GITHUB_WORKSPACE" >> "$GITHUB_PATH"
-        else
-          echo "::debug::$(which malbolge) is already installed"
-        fi
+        echo "::error title=OS is not supported::${RUNNER_OS} ${RUNNER_ARCH} is not supported"
+        exit 1
       shell: sh
+
+    - name: Collect info
+      id: info
+      env:
+        INPUT_FORCE: "${{ inputs.force }}"
+      run: ./collect-info.sh "${INPUT_FORCE}"
+      shell: sh
+      working-directory: "${{ github.action_path }}/src"
+
+    - name: Install malbolge
+      if: ${{ steps.info.outputs.bin-installed == 'false' }}
+      id: install-malbolge
+      run: |
+        bin_path="${{ steps.info.outputs.bin-path }}"
+        mkdir -p "${bin_path}"
+        gcc malbolge.c -o "${bin_path}/malbolge"
+        echo "${bin_path}" >> "$GITHUB_PATH"
+      shell: sh
+      working-directory: ${{ github.action_path }}/src
+
+    - name: Print location
+      run: |
+        . ./logging.sh
+        log_info "malbolge is located at $(which malbolge)"
+      shell: sh
+      working-directory: "${{ github.action_path }}/src/lib"
