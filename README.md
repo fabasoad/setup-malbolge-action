@@ -63,7 +63,7 @@ jobs:
     name: malbolge
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: fabasoad/setup-malbolge-action@v0
       - name: Run script
         run: malbolge hello-world.mal
@@ -75,3 +75,7 @@ jobs:
 Run malbolge hello-world.mal
 Hello, world.
 ```
+
+## Contributions
+
+![Alt](https://repobeats.axiom.co/api/embed/bab8a42be933d5e541bfb355aa6d8c179689f2fe.svg "Repobeats analytics image")
